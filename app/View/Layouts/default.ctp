@@ -54,20 +54,20 @@
                     <ul>
                        <li class='title'><a><span><?php echo "Today : " . date("D d M Y"); ?></span></a></li>
                        <li class="<?= in_array($this->name, $requestsControllers) ? "active" : "" ?>">
-                           <a href='/Requests/index'><span>Request Order</span></a>
+                           <a href='/Requests/index'><span>Request Order / สั่งของ</span></a>
                        </li>
                        <li class="<?= in_array($this->name, $pickupControllers) ? "active" : "" ?>">
-                           <a href='/PickUps/index'><span>Pick up</span></a>
+                           <a href='/PickUps/index'><span>Pick up / ของออก</span></a>
                        </li>
                        <li class="<?= in_array($this->name, $destroyControllers) ? "active" : "" ?>">
-                           <a href='/Destroy/index'><span>Destroy</span></a>
+                           <a href='/Destroy/index'><span>Spoil&Waste / ของทิ้งของเสีย</span></a>
                        </li>
                        <li class="<?= in_array($this->name, $reportControllers) ? "active" : "" ?>">
-                           <a href='/Reports/index'><span>Reports</span></a>
+                           <a href='/Reports/index'><span>Reports / รายงาน</span></a>
                        </li>
                        <?php if($_SESSION['User']['position'] === "A"){ ?>
                        <li class="<?= in_array($this->name, $masterControllers) ? "active" : "" ?>">
-                           <a href='/MasterDatas/index'><span>Master Data</span></a>
+                           <a href='/MasterDatas/index'><span>Master Data / ข้อมูลหลัก</span></a>
                        </li>
                        <?php } ?>
                     </ul>
@@ -78,7 +78,8 @@
             </td>
         </tr>
     </table>
-<?php echo $this->element('sql_dump'); ?>
-    <footer>Copyright © 2014 TaPoneSoft. All Rights Reserved</footer>
+    <footer>Copyright © 2015 TaPoneSoft All Rights Reserved</footer>
+    
+<?php //echo $this->element('sql_dump'); ?>
 </body>
 </html>

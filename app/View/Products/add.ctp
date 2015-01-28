@@ -22,10 +22,6 @@
             <td><?php echo $this->Form->input('product_category_id', array('label'=>FALSE, 'div'=>FALSE, 'id' => 'cate', 'onchange' => 'filter_sub_cate(this.value);', 'options'=>$productCategories, 'empty'=>__('Please select category'), 'required')); ?></td>
         </tr>
         <tr>
-            <td><?php echo __('Sub Category'); ?></td>
-            <td><?php echo $this->Form->input('product_sub_category_id', array('label'=>FALSE, 'div'=>FALSE, 'id' => 'sub_cate', 'options'=>array(), 'empty'=>__('Please select sub category'), 'required')); ?></td>
-        </tr>
-        <tr>
             <td><?php echo __('Par Stock'); ?></td>
             <td><?php echo $this->Form->input('par_stock', array('label'=>FALSE, 'div'=>FALSE, 'default'=>0, 'style'=>'width:70px', 'required')); ?></td>
         </tr>

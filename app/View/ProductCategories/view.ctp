@@ -1,6 +1,5 @@
 <h1><?php echo __('Product Categories > Information'); ?></h1>
-<?php echo $this->Html->link(__('Back'), array('controller' => 'ProductCategories', 'action' => 'Index'), array('class'=>'ButtonLinkBack')); ?>
-<br><br>
+
 <fieldset>
     <table class="TableView">
         <tr>
@@ -23,7 +22,9 @@
         </tr>
     </table>
 </fieldset>
+<?php echo $this->Html->link(__('Back'), array('controller' => 'ProductCategories', 'action' => 'Index'), array('class'=>'ButtonLinkBack')); ?>
 
+<?php /*
 <fieldset>
     <?php 
     echo $this->Form->create('ProductSubCategory', array('url'=>array('controller'=>'ProductCategories' , 'action'=>'add_sub_category' , $productCategory['ProductCategory']['id']))); 
@@ -60,3 +61,5 @@
     ?>
 </table>
 </fieldset>
+ * 
+ */?>

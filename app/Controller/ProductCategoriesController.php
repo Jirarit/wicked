@@ -24,7 +24,7 @@ class ProductCategoriesController extends AppController {
 	public $components = array('Paginator', 'Session');
 
         
-        public $uses = array('ProductCategory', 'ProductSubCategory', 'User');
+        public $uses = array('ProductCategory', 'User');
         public $paginate = array(
             'limit' => 10,
             'order' => array(
@@ -70,20 +70,17 @@ class ProductCategoriesController extends AppController {
  * @return void
  */
 	public function view($id = null) {
-		if (!$this->ProductCategory->exists($id)) {
-			throw new NotFoundException(__('Invalid product category'));
-		}
-		$options = array('conditions' => array('ProductCategory.' . $this->ProductCategory->primaryKey => $id));
-                $productCateogry = $this->ProductCategory->find('first', $options);
-		$this->set('productCategory', $productCateogry);
-                $user = $this->User->findById($productCateogry['ProductCategory']['create_uid']);
-                $this->set('create_uname', $user['User']['full_name']);
-                $user = $this->User->findById($productCateogry['ProductCategory']['update_uid']);
-                $this->set('update_uname', $user['User']['full_name']);
-                
-                
-                $this->set('productSubCategories', $this->ProductSubCategory->find('all', array('conditions'=>array('status' => 'A'))));
-	}
+            if (!$this->ProductCategory->exists($id)) {
+                    throw new NotFoundException(__('Invalid product category'));
+            }
+            $options = array('conditions' => array('ProductCategory.' . $this->ProductCategory->primaryKey => $id));
+            $productCateogry = $this->ProductCategory->find('first', $options);
+            $this->set('productCategory', $productCateogry);
+            $user = $this->User->findById($productCateogry['ProductCategory']['create_uid']);
+            $this->set('create_uname', $user['User']['full_name']);
+            $user = $this->User->findById($productCateogry['ProductCategory']['update_uid']);
+            $this->set('update_uname', $user['User']['full_name']);
+        }
 
 /**
  * add method

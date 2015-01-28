@@ -11,9 +11,6 @@
             <td><?php echo __('Category'); ?></td><td><?php echo h($category); ?></td>
         </tr>
         <tr>
-            <td><?php echo __('Sub Category'); ?></td><td><?php echo h($sub_category); ?></td>
-        </tr>
-        <tr>
             <td><?php echo __('Unit'); ?></td><td><?php echo h($unit); ?></td>
         </tr>
         <tr>

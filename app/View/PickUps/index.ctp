@@ -11,10 +11,6 @@
             <td><?php echo __('Category'); ?></td>
             <td><?php echo $this->Form->input('product_category_id', array('label'=>FALSE, 'div'=>FALSE, 'id' => 'cate', 'onchange' => 'filter_sub_cate(this.value);', 'options'=>$productCategories, 'empty'=>__('Please select category'))); ?></td>
         </tr>
-        <tr>
-            <td><?php echo __('Sub Category'); ?></td>
-            <td><?php echo $this->Form->input('product_sub_category_id', array('label'=>FALSE, 'div'=>FALSE, 'id' => 'sub_cate', 'options'=>@$productSubCategories[$this->request->data['Product']['product_category_id']], 'empty'=>__('Please select sub category'))); ?></td>
-        </tr>
     </table>
     <?php
     echo $this->Form->submit('Search', array('div'=>FALSE, 'class'=>'ButtonSearch'));
@@ -32,8 +28,7 @@
         <th><?php echo $this->Paginator->sort('product_name'); ?></th>
         <th><?php echo $this->Paginator->sort('unit'); ?></th>
         <th><?php echo $this->Paginator->sort('product_category_id', 'Category'); ?></th>
-        <th><?php echo $this->Paginator->sort('product_sub_category_id', 'Sub Category'); ?></th>
-        <th><?php echo __('Picked up'); ?></th>
+        <th><?php echo __('Today'); ?></th>
         <th class="actions"><?php echo __('Pick up'); ?></th>
     </tr>
     <?php 
@@ -41,7 +36,6 @@
     foreach ($products as $k => $product): 
         $product_id = $product['Product']['id'];
         $cate_id = $product['Product']['product_category_id'];
-        $sub_cate_id = $product['Product']['product_sub_category_id'];
         $product_name = $product['Product']['product_name'];
         $unit = @$productUnits[$product_id];
     ?>
@@ -51,7 +45,6 @@
             <td><?php echo h($product_name); ?>&nbsp;</td>
             <td><?php echo h($unit); ?>&nbsp;</td>
             <td><?php echo h(@$productCategories[$cate_id]); ?>&nbsp;</td>
-            <td><?php echo h(@$productSubCategories[$cate_id][$sub_cate_id]); ?>&nbsp;</td>
             <td style="width: 120px"><?php echo h(empty($picked[$product_id]) ? 0 : abs($picked[$product_id])); ?>&nbsp;</td>
             <td class="actions">
                 <?php 

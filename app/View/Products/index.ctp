@@ -11,10 +11,6 @@
             <td><?php echo __('Category'); ?></td>
             <td><?php echo $this->Form->input('product_category_id', array('label'=>FALSE, 'div'=>FALSE, 'id' => 'cate', 'onchange' => 'filter_sub_cate(this.value);', 'options'=>$productCategories, 'empty'=>__('Please select category'))); ?></td>
         </tr>
-        <tr>
-            <td><?php echo __('Sub Category'); ?></td>
-            <td><?php echo $this->Form->input('product_sub_category_id', array('label'=>FALSE, 'div'=>FALSE, 'id' => 'sub_cate', 'options'=>@$productSubCategories[$this->request->data['Product']['product_category_id']], 'empty'=>__('Please select sub category'))); ?></td>
-        </tr>
     </table>
     <?php
     echo $this->Form->submit('Search', array('div'=>FALSE, 'class'=>'ButtonSearch'));
@@ -33,7 +29,6 @@
         <th><?php echo $this->Paginator->sort('product_no'); ?></th>
         <th><?php echo $this->Paginator->sort('product_name'); ?></th>
         <th><?php echo $this->Paginator->sort('product_category_id', 'Category'); ?></th>
-        <th><?php echo $this->Paginator->sort('product_sub_category_id', 'Sub Category'); ?></th>
         <th class="datetime"><?php echo $this->Paginator->sort('modified'); ?></th>
         <th class="actions"><?php echo __('Actions'); ?></th>
     </tr>
@@ -48,7 +43,6 @@
             <td><?php echo h($product['Product']['product_no']); ?>&nbsp;</td>
             <td><?php echo h($product['Product']['product_name']); ?>&nbsp;</td>
             <td><?php echo h(@$productCategories[$cate_id]); ?>&nbsp;</td>
-            <td><?php echo h(@$productSubCategories[$cate_id][$sub_cate_id]); ?>&nbsp;</td>
             <td class="datetime"><?php echo h($product['Product']['modified']); ?>&nbsp;</td>
             <td class="actions">
                 <?php echo $this->Html->link(__('View'), array('action' => 'view', $product['Product']['id']), array('class'=>'ButtonLinkDetail')); ?>

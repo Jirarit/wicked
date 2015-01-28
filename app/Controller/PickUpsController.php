@@ -8,7 +8,7 @@ class PickUpsController extends AppController{
     
     public $components = array('Paginator', 'Session');
     
-    public $uses = array('Product', 'ProductCategory', 'ProductSubCategory', 'Unit', 'User', 'ProductMovement');
+    public $uses = array('Product', 'ProductCategory', 'Unit', 'User', 'ProductMovement');
     
     public $paginate = array(
         'limit' => 10,
@@ -42,10 +42,6 @@ class PickUpsController extends AppController{
             $this->passedArgs['product_category_id'] = $this->request->data['Product']['product_category_id'];
             $conditions['Product.product_category_id'] = $this->request->data['Product']['product_category_id'];
         }
-        if(!empty($this->request->data['Product']['product_sub_category_id'])){
-            $this->passedArgs['product_sub_category_id'] = $this->request->data['Product']['product_sub_category_id'];
-            $conditions['Product.product_sub_category_id'] = $this->request->data['Product']['product_sub_category_id'];
-        }
         
         $movement = $this->ProductMovement->find('all', array('fields'=>array('product_id', 'SUM(ProductMovement.qty) as qty'), 'conditions'=>array('movement_type'=>'PIC'), 'group'=>array('product_id')));
         $picked = array();
@@ -57,7 +53,6 @@ class PickUpsController extends AppController{
 
         $this->set('products', $this->Paginator->paginate('Product' , $conditions));
         $this->set('productCategories' , $this->ProductCategory->find('list', array('conditions' => array('status' => 'A'), 'order' => array('ProductCategory.name'))));
-        $this->set('productSubCategories' , $this->ProductSubCategory->findList());
         $this->set('productUnits' , $this->Unit->find('list', array('conditions' => array('status' => 'A'))));
     }
     
