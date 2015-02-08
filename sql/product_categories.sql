@@ -16,8 +16,6 @@ CREATE TABLE product_categories
 WITH (
   OIDS=FALSE
 );
-ALTER TABLE product_categories
-  OWNER TO wicked;
 COMMENT ON COLUMN product_categories.status IS 'A=Active
 I=Inactive';
 

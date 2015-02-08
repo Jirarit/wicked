@@ -21,8 +21,6 @@ CREATE TABLE products
 WITH (
   OIDS=FALSE
 );
-ALTER TABLE products
-  OWNER TO wicked;
 COMMENT ON COLUMN products.status IS 'A=Active
 I=Inactive';
 

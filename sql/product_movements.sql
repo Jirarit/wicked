@@ -19,8 +19,6 @@ CREATE TABLE product_movements
 WITH (
   OIDS=FALSE
 );
-ALTER TABLE product_movements
-  OWNER TO win;
 COMMENT ON COLUMN product_movements.movement_type IS 'REC=Receive (+)
 PIC=Pick up (-)
 DES=Destroy (-)

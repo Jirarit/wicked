@@ -16,8 +16,6 @@ CREATE TABLE product_sub_categories
 WITH (
   OIDS=FALSE
 );
-ALTER TABLE product_sub_categories
-  OWNER TO win;
 COMMENT ON COLUMN product_sub_categories.status IS 'A=Active
 I=Inactive';
 

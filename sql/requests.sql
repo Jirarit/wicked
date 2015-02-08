@@ -16,8 +16,6 @@ CREATE TABLE requests
 WITH (
   OIDS=FALSE
 );
-ALTER TABLE requests
-  OWNER TO win;
 COMMENT ON COLUMN requests.status IS 'N=New
 R=Received';
 

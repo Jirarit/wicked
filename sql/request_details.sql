@@ -16,9 +16,6 @@ CREATE TABLE request_details
 WITH (
   OIDS=FALSE
 );
-ALTER TABLE request_details
-  OWNER TO win;
-
 -- Index: request_details_product_id_idx
 
 -- DROP INDEX request_details_product_id_idx;

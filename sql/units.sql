@@ -14,8 +14,6 @@ CREATE TABLE units
 WITH (
   OIDS=FALSE
 );
-ALTER TABLE units
-  OWNER TO wicked;
 COMMENT ON COLUMN units.status IS 'A=Active
 I=Inactive';
 

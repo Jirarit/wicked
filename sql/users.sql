@@ -21,8 +21,6 @@ CREATE TABLE users
 WITH (
   OIDS=FALSE
 );
-ALTER TABLE users
-  OWNER TO win;
 COMMENT ON COLUMN users."position" IS 'A=Admin
 S=Staff';
 COMMENT ON COLUMN users.status IS 'A=Active
