@@ -1,4 +1,4 @@
-﻿DROP TABLE product_categories;
+DROP TABLE product_categories;
 
 CREATE TABLE product_categories
 (

@@ -1,4 +1,4 @@
-﻿DROP TABLE request_details;
+DROP TABLE request_details;
 
 CREATE TABLE request_details
 (

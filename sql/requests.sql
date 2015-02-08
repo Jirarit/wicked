@@ -1,4 +1,4 @@
-﻿DROP TABLE requests;
+DROP TABLE requests;
 
 CREATE TABLE requests
 (

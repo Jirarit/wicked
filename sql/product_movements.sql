@@ -1,4 +1,4 @@
-﻿DROP TABLE product_movements;
+DROP TABLE product_movements;
 
 CREATE TABLE product_movements
 (

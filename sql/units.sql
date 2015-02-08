@@ -1,4 +1,4 @@
-﻿DROP TABLE units;
+DROP TABLE units;
 
 CREATE TABLE units
 (

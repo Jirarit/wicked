@@ -1,4 +1,4 @@
-﻿DROP TABLE products;
+DROP TABLE products;
 
 CREATE TABLE products
 (
