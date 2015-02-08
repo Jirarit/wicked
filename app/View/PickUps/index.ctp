@@ -48,7 +48,7 @@
             <td style="width: 120px"><?php echo h(empty($picked[$product_id]) ? 0 : abs($picked[$product_id])); ?>&nbsp;</td>
             <td class="actions">
                 <?php 
-                $pick_info = json_encode(array('product_id'=>$product_id, 'product_name'=>$product_name, 'unit'=>$unit), JSON_UNESCAPED_UNICODE);
+                $pick_info = json_encode(array('product_id'=>$product_id, 'product_name'=>$product_name, 'unit'=>$unit), 256);
                 echo $this->Form->input('pick', array('div'=>FALSE, 'label'=>FALSE, 'type'=>'number', 'id'=>$product_id, 'default'=>0, 'style'=>'width:100px', 'onKeydown'=>"if(event.keyCode==13)return pickup({$pick_info});"));
                 echo $this->Html->link(__('Pick'), array('#'), array('class'=>'ButtonLink', 'onclick'=>"return pickup({$pick_info});"));
                 ?>
