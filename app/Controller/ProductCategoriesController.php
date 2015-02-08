@@ -26,9 +26,9 @@ class ProductCategoriesController extends AppController {
         
         public $uses = array('ProductCategory', 'User');
         public $paginate = array(
-            'limit' => 10,
+            'limit' => 20,
             'order' => array(
-                'ProductCategory.name' => 'asc'
+                'ProductCategory.sort' => 'asc'
             )
         );
 /**

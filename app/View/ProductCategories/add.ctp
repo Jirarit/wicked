@@ -4,6 +4,8 @@
     <?php 
     echo $this->Form->create('ProductCategory');
     echo __('Name') . " : " . $this->Form->input('name', array('label'=>FALSE, 'div'=>FALSE));
+    echo " ";
+    echo __('Sort') . " : " . $this->Form->input('sort', array('label'=>FALSE, 'div'=>FALSE, 'type'=>'number', 'style'=>'width:100px'));
     echo "&nbsp;&nbsp;" . $this->Form->submit(__('Save'), array('class'=>'ButtonSave', 'div'=>false));
     ?>
 </fieldset>

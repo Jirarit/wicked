@@ -63,7 +63,7 @@ class ProductsController extends AppController {
                 
                 
 		$this->set('products', $this->Paginator->paginate('Product' , $conditions));
-                $this->set('productCategories' , $this->ProductCategory->find('list', array('conditions' => array('status' => 'A'), 'order' => array('ProductCategory.name'))));
+                $this->set('productCategories' , $this->ProductCategory->find('list', array('conditions' => array('status' => 'A'), 'order' => array('ProductCategory.sort'))));
                 $this->set('productSubCategories' , $this->ProductSubCategory->findList());
 	}
 

@@ -42,13 +42,13 @@ class AppController extends Controller {
             $this->redirect(array('controller'=>'Home' , 'action'=>'index'));
         }elseif($this->name === "Authentications" && $this->Cookie->check("User.id") === TRUE){
             $user_info = $this->Cookie->read("User");
-            $this->Session->write("User", $user_info["User"]);
+            $this->Session->write("User", $user_info);
             $this->redirect(array('controller'=>'Home' , 'action'=>'index'));
         }elseif($this->name !== "Authentications" && $this->Session->check("User.id") === FALSE && $this->Cookie->check("User.id") === FALSE){
             $this->redirect(array('controller'=>'Authentications' , 'action'=>'logout'));
         }elseif($this->name !== "Authentications" && $this->Session->check("User.id") === FALSE && $this->Cookie->check("User.id") === TRUE){
             $user_info = $this->Cookie->read("User");
-            $this->Session->write("User", $user_info["User"]);
+            $this->Session->write("User", $user_info);
         }
     }
     

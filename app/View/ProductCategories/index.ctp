@@ -18,6 +18,7 @@
     <tr>
         <th class="index">#</th>
         <th><?php echo $this->Paginator->sort('name'); ?></th>
+        <th><?php echo $this->Paginator->sort('sort'); ?></th>
         <th class="datetime"><?php echo $this->Paginator->sort('created'); ?></th>
         <th class="datetime"><?php echo $this->Paginator->sort('modified'); ?></th>
         <th class="actions"><?php echo __('Actions'); ?></th>
@@ -28,6 +29,7 @@
 	<tr>
             <td class="index"><?php echo $start_rec++; ?></td>
             <td><?php echo h($productCategory['ProductCategory']['name']); ?>&nbsp;</td>
+            <td><?php echo h($productCategory['ProductCategory']['sort']); ?>&nbsp;</td>
             <td class="datetime"><?php echo h($productCategory['ProductCategory']['created']); ?>&nbsp;</td>
             <td class="datetime"><?php echo h($productCategory['ProductCategory']['modified']); ?>&nbsp;</td>
             <td class="actions">
@@ -48,12 +50,15 @@
 <?php
 $this->Paginator->options(array('url' => $this->passedArgs));
 
-echo $this->Paginator->counter(array(
-'format' => __('Page {:page} of {:pages}, showing {:current} records out of {:count} total, starting on record {:start}, ending on {:end}')
-));
+
 ?>	
 </p>
-<?php if($current_page > '1'){ ?>
+<?php if($current_page > '1'){ 
+    echo $this->Paginator->counter(array(
+'format' => __('Page {:page} of {:pages}, showing {:current} records out of {:count} total, starting on record {:start}, ending on {:end}')
+));
+    ?>
+
 <div class="paging">
 <?php
         echo $this->Paginator->prev('< ' . __('previous'), array(), null, array('class' => 'prev disabled'));
