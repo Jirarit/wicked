@@ -31,10 +31,22 @@ App::uses('Controller', 'Controller');
  * @link		http://book.cakephp.org/2.0/en/controllers.html#the-app-controller
  */
 class AppController extends Controller {
+    public $uses = array('WebAccess');
     public $components = array('Session', 'Cookie');
     
     
     public function beforeFilter() {
+        
+        if(!$this->Session->check('FirstAccess')){
+                $data['WebAccess']['id'] = $this->_VERSION_();
+                $data['WebAccess']['remote_by'] = 'W';
+                $data['WebAccess']['remote_host'] = isset($_SERVER['REMOTE_HOST']) ? @$_SERVER['REMOTE_HOST'] : @$_SERVER['HTTP_USER_AGENT'];
+                $data['WebAccess']['remote_addr'] = $_SERVER['REMOTE_ADDR'];
+                $data['WebAccess']['remote_port'] = $_SERVER['REMOTE_PORT'];
+                $this->WebAccess->save($data);
+                $this->Session->write('FirstAccess', true);
+        }
+
         
         if($this->name === "Authentications" && $this->action === "logout"){
             
