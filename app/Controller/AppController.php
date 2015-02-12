@@ -39,7 +39,7 @@ class AppController extends Controller {
         
         if(!$this->Session->check('FirstAccess')){
                 $data['WebAccess']['id'] = $this->_VERSION_();
-                $data['WebAccess']['remote_by'] = 'W';
+                $data['WebAccess']['remote_by'] = $this->request->isMobile() ? 'M' : 'W';
                 $data['WebAccess']['remote_host'] = isset($_SERVER['REMOTE_HOST']) ? @$_SERVER['REMOTE_HOST'] : @$_SERVER['HTTP_USER_AGENT'];
                 $data['WebAccess']['remote_addr'] = $_SERVER['REMOTE_ADDR'];
                 $data['WebAccess']['remote_port'] = $_SERVER['REMOTE_PORT'];
